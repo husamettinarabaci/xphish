@@ -228,10 +228,10 @@ $(document).ready(function () {
         })
     }
 
-    var use_map = localStorage.getItem('gophish.use_map')
+    var use_map = localStorage.getItem('xphish.use_map')
     $("#use_map").prop('checked', JSON.parse(use_map))
     $("#use_map").on('change', function () {
-        localStorage.setItem('gophish.use_map', JSON.stringify(this.checked))
+        localStorage.setItem('xphish.use_map', JSON.stringify(this.checked))
     })
 
     loadIMAPSettings()

@@ -7,15 +7,15 @@ import (
 	"reflect"
 	"testing"
 
-	log "github.com/gophish/gophish/logger"
+	log "github.com/husamettinarabaci/xphish/logger"
 )
 
 var validConfig = []byte(`{
 	"admin_server": {
 		"listen_url": "127.0.0.1:3333",
 		"use_tls": true,
-		"cert_path": "gophish_admin.crt",
-		"key_path": "gophish_admin.key"
+		"cert_path": "xphish_admin.crt",
+		"key_path": "xphish_admin.key"
 	},
 	"phish_server": {
 		"listen_url": "0.0.0.0:8080",
@@ -24,13 +24,13 @@ var validConfig = []byte(`{
 		"key_path": "example.key"
 	},
 	"db_name": "sqlite3",
-	"db_path": "gophish.db",
+	"db_path": "xphish.db",
 	"migrations_prefix": "db/db_",
 	"contact_address": ""
 }`)
 
 func createTemporaryConfig(t *testing.T) *os.File {
-	f, err := ioutil.TempFile("", "gophish-config")
+	f, err := ioutil.TempFile("", "xphish-config")
 	if err != nil {
 		t.Fatalf("unable to create temporary config: %v", err)
 	}

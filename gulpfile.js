@@ -1,7 +1,7 @@
 /*
  * gulpfile.js
  *
- * Description: The Gophish gulpfile
+ * Description: The Xphish gulpfile
  */
 
 var gulp = require('gulp'),
@@ -49,7 +49,7 @@ vendorjs = function () {
 }
 
 scripts = function () {
-    // Gophish app files - non-ES6
+    // Xphish app files - non-ES6
     return gulp.src([
             app_directory + 'autocomplete.js',
             app_directory + 'campaign_results.js',
@@ -60,7 +60,7 @@ scripts = function () {
             app_directory + 'sending_profiles.js',
             app_directory + 'settings.js',
             app_directory + 'templates.js',
-            app_directory + 'gophish.js',
+            app_directory + 'xphish.js',
             app_directory + 'users.js',
             app_directory + 'webhooks.js',
             app_directory + 'passwords.js'
@@ -92,7 +92,7 @@ styles = function () {
         .pipe(cleanCSS({
             compatibilty: 'ie9'
         }))
-        .pipe(concat('gophish.css'))
+        .pipe(concat('xphish.css'))
         .pipe(gulp.dest(dest_css_directory));
 }
 

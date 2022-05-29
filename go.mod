@@ -1,4 +1,4 @@
-module github.com/gophish/gophish
+module github.com/husamettinarabaci/xphish
 
 go 1.13
 

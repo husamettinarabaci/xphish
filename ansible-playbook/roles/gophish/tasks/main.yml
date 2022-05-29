@@ -13,13 +13,13 @@
     port: "22"
     proto: tcp
 
-- name: Allow TCP 80 for Gophish.
+- name: Allow TCP 80 for Xphish.
   ufw:
     rule: allow
     port: "80"
     proto: tcp
 
-- name: Allow TCP 443 for Gophish.
+- name: Allow TCP 443 for Xphish.
   ufw:
     rule: allow
     port: "443"
@@ -62,9 +62,9 @@
     pkg: "{{ install_packages }}"
     state: latest
 
-- name: adding existing user '{{ gophish_user }}' to group ssl-cert
+- name: adding existing user '{{ xphish_user }}' to group ssl-cert
   user:
-    name: "{{ gophish_user }}"
+    name: "{{ xphish_user }}"
     groups: ssl-cert
     append: yes
 
@@ -74,19 +74,19 @@
 
 - name: Generate an OpenSSL private key with the default values (4096 bits, RSA)
   openssl_privatekey:
-    path: "{{ gophish_ssl_cert_path }}"
+    path: "{{ xphish_ssl_cert_path }}"
 
 - name: Generate an OpenSSL Certificate Signing Request
   openssl_csr:
-    path: "{{ gophish_csr_path }}"
-    privatekey_path: "{{ gophish_ssl_cert_path }}"
-    common_name: "{{ gophish_domain }}"
+    path: "{{ xphish_csr_path }}"
+    privatekey_path: "{{ xphish_ssl_cert_path }}"
+    common_name: "{{ xphish_domain }}"
 
 - name: Generate a Self Signed OpenSSL certificate
   openssl_certificate:
-    path: "{{ gophish_crt_path }}"
-    privatekey_path: "{{ gophish_ssl_cert_path }}"
-    csr_path: "{{ gophish_csr_path }}"
+    path: "{{ xphish_crt_path }}"
+    privatekey_path: "{{ xphish_ssl_cert_path }}"
+    csr_path: "{{ xphish_csr_path }}"
     provider: selfsigned
 
 - name: Update postfix main.cf configuration file.
@@ -111,88 +111,88 @@
 
 - name: get latest release info
   uri:
-    url: "https://api.github.com/repos/gophish/gophish/releases/latest"
+    url: "https://api.github.com/repos/husamettinarabaci/xphish/releases/latest"
     return_content: true
   register: latest_json_reponse
 
-- name: Download latest Gophish .zip file.
+- name: Download latest Xphish .zip file.
   get_url:
     validate_certs: True
-    url: "https://github.com/gophish/gophish/releases/download/{{ latest_json_reponse.json.tag_name }}/gophish-{{ latest_json_reponse.json.tag_name }}-linux-64bit.zip"
-    dest: "/home/{{ gophish_user }}/gophish.zip"
+    url: "https://github.com/husamettinarabaci/xphish/releases/download/{{ latest_json_reponse.json.tag_name }}/xphish-{{ latest_json_reponse.json.tag_name }}-linux-64bit.zip"
+    dest: "/home/{{ xphish_user }}/xphish.zip"
     mode: 0755
-    owner: "{{ gophish_user }}"
-    group: "{{ gophish_user }}"
+    owner: "{{ xphish_user }}"
+    group: "{{ xphish_user }}"
 
-- name: Ensure gophish user has permission for CRT file.
+- name: Ensure xphish user has permission for CRT file.
   file:
-    path: "{{ gophish_crt_path }}"
+    path: "{{ xphish_crt_path }}"
     mode: 0755
-    owner: "{{ gophish_user }}"
-    group: "{{ gophish_user }}"
+    owner: "{{ xphish_user }}"
+    group: "{{ xphish_user }}"
 
-- name: Ensure gophish user has permission for SSL certificate.
+- name: Ensure xphish user has permission for SSL certificate.
   file:
-    path: "{{ gophish_ssl_cert_path }}"
+    path: "{{ xphish_ssl_cert_path }}"
     mode: 0755
-    owner: "{{ gophish_user }}"
-    group: "{{ gophish_user }}"
+    owner: "{{ xphish_user }}"
+    group: "{{ xphish_user }}"
 
-- name: Create directory for gophish.
+- name: Create directory for xphish.
   file:
-    path: "/home/{{ gophish_user }}/gophish_deploy"
+    path: "/home/{{ xphish_user }}/xphish_deploy"
     state: directory
     mode: 0755
-    owner: "{{ gophish_user }}"
-    group: "{{ gophish_user }}"
+    owner: "{{ xphish_user }}"
+    group: "{{ xphish_user }}"
 
-- name: Unzip gophish file.
+- name: Unzip xphish file.
   unarchive:
-    src: "/home/{{ gophish_user }}/gophish.zip"
-    dest: "/home/{{ gophish_user }}/gophish_deploy"
+    src: "/home/{{ xphish_user }}/xphish.zip"
+    dest: "/home/{{ xphish_user }}/xphish_deploy"
     remote_src: True # File is on target server and not locally.
-    owner: "{{ gophish_user }}"
-    group: "{{ gophish_user }}"
+    owner: "{{ xphish_user }}"
+    group: "{{ xphish_user }}"
 
-- name: Change ownership of Gophish folder and files.
+- name: Change ownership of Xphish folder and files.
   file:
-    path: /home/{{ gophish_user }}/gophish_deploy
-    owner: "{{ gophish_user }}"
-    group: "{{ gophish_user }}"
+    path: /home/{{ xphish_user }}/xphish_deploy
+    owner: "{{ xphish_user }}"
+    group: "{{ xphish_user }}"
     recurse: True
 
-- name: Ensure gophish binary is executable
+- name: Ensure xphish binary is executable
   file:
-    path: /home/{{ gophish_user }}/gophish_deploy/gophish
+    path: /home/{{ xphish_user }}/xphish_deploy/xphish
     mode: 744
 
-- name: Ensure gophish binary is allowed to bind to privileged ports using setcap
+- name: Ensure xphish binary is allowed to bind to privileged ports using setcap
   capabilities:
-    path: /home/{{ gophish_user }}/gophish_deploy/gophish
+    path: /home/{{ xphish_user }}/xphish_deploy/xphish
     capability: cap_net_bind_service+eip
     state: present
 
 - name: Copy config.json file.
   copy:
     src: files/config.json
-    dest: "/home/{{ gophish_user }}/gophish_deploy/config.json"
-    owner: "{{ gophish_user }}"
-    group: "{{ gophish_user }}"
+    dest: "/home/{{ xphish_user }}/xphish_deploy/config.json"
+    owner: "{{ xphish_user }}"
+    group: "{{ xphish_user }}"
     mode: 0644
 
-- name: Ensure gophish service file is properly set
+- name: Ensure xphish service file is properly set
   template:
-    src: gophish.service.j2
-    dest: /etc/systemd/system/gophish.service
+    src: xphish.service.j2
+    dest: /etc/systemd/system/xphish.service
     mode: 644
 
 - name: Ensure systemd to reread configs
   systemd:
     daemon_reload: yes
 
-- name: Ensure gophish is properly started
+- name: Ensure xphish is properly started
   service:
-    name: gophish.service
+    name: xphish.service
     state: started
     enabled: yes
 
@@ -213,13 +213,13 @@
     state: reloaded
     enabled: yes
 
-- name: get Gophish log file which contain initial password
-  command: cat /home/{{ gophish_user }}/gophish_deploy/gophish.log
-  register: gophish_log
+- name: get Xphish log file which contain initial password
+  command: cat /home/{{ xphish_user }}/xphish_deploy/xphish.log
+  register: xphish_log
 
 - name: display log file
   debug:
-    msg: "{{ gophish_log }}"
+    msg: "{{ xphish_log }}"
 
 - name: Reboot the box in 1 minute.
   command: shutdown -r 1

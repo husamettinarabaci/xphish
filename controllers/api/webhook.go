@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strconv"
 
-	log "github.com/gophish/gophish/logger"
-	"github.com/gophish/gophish/models"
-	"github.com/gophish/gophish/webhook"
 	"github.com/gorilla/mux"
+	log "github.com/husamettinarabaci/xphish/logger"
+	"github.com/husamettinarabaci/xphish/models"
+	"github.com/husamettinarabaci/xphish/webhook"
 )
 
 // Webhooks returns a list of webhooks, both active and disabled

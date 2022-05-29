@@ -10,8 +10,8 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
-	ctx "github.com/gophish/gophish/context"
-	"github.com/gophish/gophish/models"
+	ctx "github.com/husamettinarabaci/xphish/context"
+	"github.com/husamettinarabaci/xphish/models"
 )
 
 func createUnpriviledgedUser(t *testing.T, slug string) *models.User {
@@ -147,7 +147,7 @@ func TestModifyUser(t *testing.T) {
 }
 
 // TestUnauthorizedListUsers ensures that users without the ModifySystem
-// permission are unable to list the users registered in Gophish.
+// permission are unable to list the users registered in Xphish.
 func TestUnauthorizedListUsers(t *testing.T) {
 	testCtx := setupTest(t)
 	// First, let's create a standard user which doesn't

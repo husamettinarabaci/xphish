@@ -30,8 +30,8 @@ VALUES
 
 INSERT INTO `permissions` (`slug`, `name`, `description`)
 VALUES
-    ("view_objects", "View Objects", "View objects in Gophish"),
-    ("modify_objects", "Modify Objects", "Create and edit objects in Gophish"),
+    ("view_objects", "View Objects", "View objects in Xphish"),
+    ("modify_objects", "Modify Objects", "Create and edit objects in Xphish"),
     ("modify_system", "Modify System", "Manage system-wide configuration");
 
 -- Our rules for generating the admin user are:

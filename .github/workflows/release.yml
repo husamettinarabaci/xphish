@@ -1,4 +1,4 @@
-name: Build Gophish Release
+name: Build Xphish Release
 on:
     release:
         types: [created]
@@ -17,15 +17,15 @@ jobs:
                 include:
                     - os: windows-latest
                       goos: windows
-                      bin: 'gophish.exe'
+                      bin: 'xphish.exe'
                       releaseos: windows
                     - os: ubuntu-latest
                       goos: linux
-                      bin: 'gophish'
+                      bin: 'xphish'
                       releaseos: linux
                     - os: macos-latest
                       goos: darwin
-                      bin: 'gophish'
+                      bin: 'xphish'
                       releaseos: osx
                 # Don't build windows-32bit due to missing MinGW dependencies
                 # Don't build osx-32bit due to eventual drop in Go support
@@ -42,9 +42,9 @@ jobs:
             - if: matrix.os == 'ubuntu-latest'
               run: sudo apt-get update && sudo apt-get install -y gcc-multilib
             - if: matrix.arch == '386'
-              run: echo "::set-env name=RELEASE::gophish-${{ github.event.release.tag_name }}-${{ matrix.releaseos}}-32bit"
+              run: echo "::set-env name=RELEASE::xphish-${{ github.event.release.tag_name }}-${{ matrix.releaseos}}-32bit"
             - if: matrix.arch == 'amd64'
-              run: echo "::set-env name=RELEASE::gophish-${{ github.event.release.tag_name}}-${{ matrix.releaseos}}-64bit"
+              run: echo "::set-env name=RELEASE::xphish-${{ github.event.release.tag_name}}-${{ matrix.releaseos}}-64bit"
             - uses: actions/checkout@v2
             - name: Build ${{ matrix.goos }}/${{ matrix.arch }}
               run: go build -o ${{ matrix.bin }}

@@ -27,7 +27,7 @@ BEGIN:VEVENT
 DTSTAMP:20210306T182251Z
 DTSTART;TZID=Europe/London:20210306T183000
 DTEND;TZID=Europe/London:20210306T190000
-SUMMARY:Gophish Test Calendar
+SUMMARY:Xphish Test Calendar
 UID:20210306T182251Z-89336450000@fe80:0:0:0:31:49ff:fec9:f252ens5
 TZID:Europe/London
 DESCRIPTION:Glenn Wilkinson is inviting you to a scheduled Zoom meeting.\

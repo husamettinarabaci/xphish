@@ -3,17 +3,17 @@ package api
 import (
 	"net/http"
 
-	mid "github.com/gophish/gophish/middleware"
-	"github.com/gophish/gophish/middleware/ratelimit"
-	"github.com/gophish/gophish/models"
-	"github.com/gophish/gophish/worker"
 	"github.com/gorilla/mux"
+	mid "github.com/husamettinarabaci/xphish/middleware"
+	"github.com/husamettinarabaci/xphish/middleware/ratelimit"
+	"github.com/husamettinarabaci/xphish/models"
+	"github.com/husamettinarabaci/xphish/worker"
 )
 
 // ServerOption is an option to apply to the API server.
 type ServerOption func(*Server)
 
-// Server represents the routes and functionality of the Gophish API.
+// Server represents the routes and functionality of the Xphish API.
 // It's not a server in the traditional sense, in that it isn't started and
 // stopped. Rather, it's meant to be used as an http.Handler in the
 // AdminServer.

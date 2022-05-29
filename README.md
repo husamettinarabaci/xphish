@@ -1,53 +1,53 @@
-![gophish logo](https://raw.github.com/gophish/gophish/master/static/images/gophish_purple.png)
+![xphish logo](https://raw.github.com/husamettinarabaci/xphish/master/static/images/xphish_purple.png)
 
-Gophish
+Xphish
 =======
 
-![Build Status](https://github.com/gophish/gophish/workflows/CI/badge.svg) [![GoDoc](https://godoc.org/github.com/gophish/gophish?status.svg)](https://godoc.org/github.com/gophish/gophish)
+![Build Status](https://github.com/husamettinarabaci/xphish/workflows/CI/badge.svg) [![GoDoc](https://godoc.org/github.com/husamettinarabaci/xphish?status.svg)](https://godoc.org/github.com/husamettinarabaci/xphish)
 
-Gophish: Open-Source Phishing Toolkit
+Xphish: Open-Source Phishing Toolkit
 
-[Gophish](https://getgophish.com) is an open-source phishing toolkit designed for businesses and penetration testers. It provides the ability to quickly and easily setup and execute phishing engagements and security awareness training.
+[Xphish](https://getxphish.com) is an open-source phishing toolkit designed for businesses and penetration testers. It provides the ability to quickly and easily setup and execute phishing engagements and security awareness training.
 
 ### Install
 
-Installation of Gophish is dead-simple - just download and extract the zip containing the [release for your system](https://github.com/gophish/gophish/releases/), and run the binary. Gophish has binary releases for Windows, Mac, and Linux platforms.
+Installation of Xphish is dead-simple - just download and extract the zip containing the [release for your system](https://github.com/husamettinarabaci/xphish/releases/), and run the binary. Xphish has binary releases for Windows, Mac, and Linux platforms.
 
 ### Building From Source
-**If you are building from source, please note that Gophish requires Go v1.10 or above!**
+**If you are building from source, please note that Xphish requires Go v1.10 or above!**
 
-To build Gophish from source, simply run ```go get github.com/gophish/gophish``` and ```cd``` into the project source directory. Then, run ```go build```. After this, you should have a binary called ```gophish``` in the current directory.
+To build Xphish from source, simply run ```go get github.com/husamettinarabaci/xphish``` and ```cd``` into the project source directory. Then, run ```go build```. After this, you should have a binary called ```xphish``` in the current directory.
 
 ### Docker
-You can also use Gophish via the official Docker container [here](https://hub.docker.com/r/gophish/gophish/).
+You can also use Xphish via the official Docker container [here](https://hub.docker.com/r/husamettinarabaci/xphish/).
 
 ### Setup
-After running the Gophish binary, open an Internet browser to https://localhost:3333 and login with the default username and password listed in the log output.
+After running the Xphish binary, open an Internet browser to https://localhost:3333 and login with the default username and password listed in the log output.
 e.g.
 ```
 time="2020-07-29T01:24:08Z" level=info msg="Please login with the username admin and the password 4304d5255378177d"
 ```
 
-Releases of Gophish prior to v0.10.1 have a default username of `admin` and password of `gophish`.
+Releases of Xphish prior to v0.10.1 have a default username of `admin` and password of `xphish`.
 
 ### Documentation
 
-Documentation can be found on our [site](http://getgophish.com/documentation). Find something missing? Let us know by filing an issue!
+Documentation can be found on our [site](http://getxphish.com/documentation). Find something missing? Let us know by filing an issue!
 
 ### Issues
 
-Find a bug? Want more features? Find something missing in the documentation? Let us know! Please don't hesitate to [file an issue](https://github.com/gophish/gophish/issues/new) and we'll get right on it.
+Find a bug? Want more features? Find something missing in the documentation? Let us know! Please don't hesitate to [file an issue](https://github.com/husamettinarabaci/xphish/issues/new) and we'll get right on it.
 
 ### License
 ```
-Gophish - Open-Source Phishing Framework
+Xphish - Open-Source Phishing Framework
 
 The MIT License (MIT)
 
 Copyright (c) 2013 - 2020 Jordan Wright
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software ("Gophish Community Edition") and associated documentation files (the "Software"), to deal
+of this software ("Xphish Community Edition") and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is

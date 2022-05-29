@@ -12,9 +12,9 @@ import (
 	"time"
 
 	"github.com/gophish/gomail"
-	"github.com/gophish/gophish/config"
-	log "github.com/gophish/gophish/logger"
-	"github.com/gophish/gophish/mailer"
+	"github.com/husamettinarabaci/xphish/config"
+	log "github.com/husamettinarabaci/xphish/logger"
+	"github.com/husamettinarabaci/xphish/mailer"
 )
 
 // MaxSendAttempts set to 8 since we exponentially backoff after each failed send
@@ -194,7 +194,7 @@ func (m *MailLog) Generate(msg *gomail.Message) error {
 	// Add the transparency headers
 	msg.SetHeader("X-Mailer", config.ServerName)
 	if conf.ContactAddress != "" {
-		msg.SetHeader("X-Gophish-Contact", conf.ContactAddress)
+		msg.SetHeader("X-Xphish-Contact", conf.ContactAddress)
 	}
 
 	// Add Message-Id header as described in RFC 2822.
@@ -303,7 +303,7 @@ func LockMailLogs(ms []*MailLog, lock bool) error {
 }
 
 // UnlockAllMailLogs removes the processing lock for all maillogs
-// in the database. This is intended to be called when Gophish is started
+// in the database. This is intended to be called when Xphish is started
 // so that any previously locked maillogs can resume processing.
 func UnlockAllMailLogs() error {
 	return db.Model(&MailLog{}).Update("processing", false).Error

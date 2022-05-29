@@ -11,14 +11,14 @@ import (
 	"time"
 
 	"github.com/NYTimes/gziphandler"
-	"github.com/gophish/gophish/config"
-	ctx "github.com/gophish/gophish/context"
-	"github.com/gophish/gophish/controllers/api"
-	log "github.com/gophish/gophish/logger"
-	"github.com/gophish/gophish/models"
-	"github.com/gophish/gophish/util"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
+	"github.com/husamettinarabaci/xphish/config"
+	ctx "github.com/husamettinarabaci/xphish/context"
+	"github.com/husamettinarabaci/xphish/controllers/api"
+	log "github.com/husamettinarabaci/xphish/logger"
+	"github.com/husamettinarabaci/xphish/models"
+	"github.com/husamettinarabaci/xphish/util"
 	"github.com/jordan-wright/unindexed"
 )
 
@@ -38,7 +38,7 @@ type TransparencyResponse struct {
 	SendDate       time.Time `json:"send_date"`
 }
 
-// TransparencySuffix (when appended to a valid result ID), will cause Gophish
+// TransparencySuffix (when appended to a valid result ID), will cause Xphish
 // to return a transparency response.
 const TransparencySuffix = "+"
 
@@ -209,7 +209,7 @@ func (ps *PhishingServer) PhishHandler(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	w.Header().Set("X-Server", config.ServerName) // Useful for checking if this is a GoPhish server (e.g. for campaign reporting plugins)
+	w.Header().Set("X-Server", config.ServerName) // Useful for checking if this is a XPhish server (e.g. for campaign reporting plugins)
 	var ptx models.PhishingTemplateContext
 	// Check for a preview
 	if preview, ok := ctx.Get(r, "result").(models.EmailRequest); ok {

@@ -1,5 +1,5 @@
 /*
-gophish - Open-Source Phishing Framework
+xphish - Open-Source Phishing Framework
 
 The MIT License (MIT)
 

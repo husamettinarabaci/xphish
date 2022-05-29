@@ -1,16 +1,16 @@
 {
-  "name": "gophish",
+  "name": "xphish",
   "version": "0.4.0-dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gophish/gophish.git"
+    "url": "git+https://github.com/husamettinarabaci/xphish.git"
   },
   "author": "Jordan Wright",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gophish/gophish/issues"
+    "url": "https://github.com/husamettinarabaci/xphish/issues"
   },
-  "homepage": "https://getgophish.com",
+  "homepage": "https://getxphish.com",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",

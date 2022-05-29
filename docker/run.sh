@@ -70,5 +70,5 @@ fi
 echo "Runtime configuration: "
 cat config.json
 
-# start gophish
-./gophish
+# start xphish
+./xphish

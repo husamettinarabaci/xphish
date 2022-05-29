@@ -2,9 +2,9 @@
 
 **Please use this template when creating a new issue. If you do not follow this template format, your issue may be closed without comment.**
 
-Before filing a new issue, please use the search bar at the top of the browser to search for similar issues. Also, please make sure you have read our [documentation](https://getgophish.com/documentation/), which covers how to use Gophish.
+Before filing a new issue, please use the search bar at the top of the browser to search for similar issues. Also, please make sure you have read our [documentation](https://getxphish.com/documentation/), which covers how to use Xphish.
 
-What version of Gophish are you using?: 
+What version of Xphish are you using?: 
 
 Brief description of the issue: 
 

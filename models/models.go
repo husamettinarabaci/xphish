@@ -13,10 +13,10 @@ import (
 	"bitbucket.org/liamstask/goose/lib/goose"
 
 	mysql "github.com/go-sql-driver/mysql"
-	"github.com/gophish/gophish/auth"
-	"github.com/gophish/gophish/config"
+	"github.com/husamettinarabaci/xphish/auth"
+	"github.com/husamettinarabaci/xphish/config"
 
-	log "github.com/gophish/gophish/logger"
+	log "github.com/husamettinarabaci/xphish/logger"
 	"github.com/jinzhu/gorm"
 	_ "github.com/mattn/go-sqlite3" // Blank import needed to import sqlite3
 )
@@ -32,12 +32,12 @@ const DefaultAdminUsername = "admin"
 // InitialAdminPassword is the environment variable that specifies which
 // password to use for the initial root login instead of generating one
 // randomly
-const InitialAdminPassword = "GOPHISH_INITIAL_ADMIN_PASSWORD"
+const InitialAdminPassword = "XPHISH_INITIAL_ADMIN_PASSWORD"
 
 // InitialAdminApiToken is the environment variable that specifies the
 // API token to seed the initial root login instead of generating one
 // randomly
-const InitialAdminApiToken = "GOPHISH_INITIAL_ADMIN_API_TOKEN"
+const InitialAdminApiToken = "XPHISH_INITIAL_ADMIN_API_TOKEN"
 
 const (
 	CampaignInProgress string = "In progress"
@@ -226,11 +226,11 @@ func Setup(c *config.Config) error {
 			return err
 		}
 	}
-	// If this is the first time the user is installing Gophish, then we will
+	// If this is the first time the user is installing Xphish, then we will
 	// generate a temporary password for the admin user.
 	//
 	// We do this here instead of in the block above where the admin is created
-	// since there's the chance the user executes Gophish and has some kind of
+	// since there's the chance the user executes Xphish and has some kind of
 	// error, then tries restarting it. If they didn't grab the password out of
 	// the logs, then they would have lost it.
 	//

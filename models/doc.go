@@ -1,5 +1,5 @@
 /*
-gophish - Open-Source Phishing Framework
+xphish - Open-Source Phishing Framework
 
 The MIT License (MIT)
 
@@ -24,5 +24,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-// Package models implements the types and structs needed in gophish.
+// Package models implements the types and structs needed in xphish.
 package models

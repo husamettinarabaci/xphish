@@ -10,8 +10,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/gophish/gophish/config"
-	"github.com/gophish/gophish/models"
+	"github.com/husamettinarabaci/xphish/config"
+	"github.com/husamettinarabaci/xphish/models"
 )
 
 func getFirstCampaign(t *testing.T) models.Campaign {

@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strings"
 
-	ctx "github.com/gophish/gophish/context"
-	"github.com/gophish/gophish/models"
 	"github.com/gorilla/csrf"
+	ctx "github.com/husamettinarabaci/xphish/context"
+	"github.com/husamettinarabaci/xphish/models"
 )
 
 // CSRFExemptPrefixes are a list of routes that are exempt from CSRF protection
@@ -51,7 +51,7 @@ func GetContext(handler http.Handler) http.HandlerFunc {
 		}
 		// Set the context appropriately here.
 		// Set the session
-		session, _ := Store.Get(r, "gophish")
+		session, _ := Store.Get(r, "xphish")
 		// Put the session in the context so that we can
 		// reuse the values in different handlers
 		r = ctx.Set(r, "session", session)

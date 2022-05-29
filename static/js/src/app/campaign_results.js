@@ -165,7 +165,7 @@ function deleteCampaign() {
 function completeCampaign() {
     Swal.fire({
         title: "Are you sure?",
-        text: "Gophish will stop processing events for this campaign",
+        text: "Xphish will stop processing events for this campaign",
         type: "warning",
         animation: false,
         showCancelButton: true,
@@ -721,12 +721,12 @@ function poll() {
 
 function load() {
     campaign.id = window.location.pathname.split('/').slice(-1)[0]
-    var use_map = JSON.parse(localStorage.getItem('gophish.use_map'))
+    var use_map = JSON.parse(localStorage.getItem('xphish.use_map'))
     api.campaignId.results(campaign.id)
         .success(function (c) {
             campaign = c
             if (campaign) {
-                $("title").text(c.name + " - Gophish")
+                $("title").text(c.name + " - Xphish")
                 $("#loading").hide()
                 $("#campaignResults").show()
                 // Set the title

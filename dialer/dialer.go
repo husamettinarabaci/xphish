@@ -62,11 +62,11 @@ func Dialer() *net.Dialer {
 // Dialer returns a net.Dialer that restricts outbound connections to only the
 // allowed addresses over TCP.
 //
-// By default, since Gophish anticipates connections originating to hosts on
+// By default, since Xphish anticipates connections originating to hosts on
 // the local network, we only deny access to the link-local addresses at
 // 169.254.0.0/16.
 //
-// If hosts are provided, then Gophish blocks access to all local addresses
+// If hosts are provided, then Xphish blocks access to all local addresses
 // except the ones provided.
 //
 // This implementation is based on the blog post by Andrew Ayer at

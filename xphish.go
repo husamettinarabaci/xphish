@@ -1,7 +1,7 @@
 package main
 
 /*
-gophish - Open-Source Phishing Framework
+xphish - Open-Source Phishing Framework
 
 The MIT License (MIT)
 
@@ -34,14 +34,14 @@ import (
 
 	"gopkg.in/alecthomas/kingpin.v2"
 
-	"github.com/gophish/gophish/config"
-	"github.com/gophish/gophish/controllers"
-	"github.com/gophish/gophish/dialer"
-	"github.com/gophish/gophish/imap"
-	log "github.com/gophish/gophish/logger"
-	"github.com/gophish/gophish/middleware"
-	"github.com/gophish/gophish/models"
-	"github.com/gophish/gophish/webhook"
+	"github.com/husamettinarabaci/xphish/config"
+	"github.com/husamettinarabaci/xphish/controllers"
+	"github.com/husamettinarabaci/xphish/dialer"
+	"github.com/husamettinarabaci/xphish/imap"
+	log "github.com/husamettinarabaci/xphish/logger"
+	"github.com/husamettinarabaci/xphish/middleware"
+	"github.com/husamettinarabaci/xphish/models"
+	"github.com/husamettinarabaci/xphish/webhook"
 )
 
 const (
@@ -102,7 +102,7 @@ func main() {
 	}
 
 	// Unlock any maillogs that may have been locked for processing
-	// when Gophish was last shutdown.
+	// when Xphish was last shutdown.
 	err = models.UnlockAllMailLogs()
 	if err != nil {
 		log.Fatal(err)

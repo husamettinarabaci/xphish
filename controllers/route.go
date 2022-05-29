@@ -11,20 +11,20 @@ import (
 	"time"
 
 	"github.com/NYTimes/gziphandler"
-	"github.com/gophish/gophish/auth"
-	"github.com/gophish/gophish/config"
-	ctx "github.com/gophish/gophish/context"
-	"github.com/gophish/gophish/controllers/api"
-	log "github.com/gophish/gophish/logger"
-	mid "github.com/gophish/gophish/middleware"
-	"github.com/gophish/gophish/middleware/ratelimit"
-	"github.com/gophish/gophish/models"
-	"github.com/gophish/gophish/util"
-	"github.com/gophish/gophish/worker"
 	"github.com/gorilla/csrf"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
+	"github.com/husamettinarabaci/xphish/auth"
+	"github.com/husamettinarabaci/xphish/config"
+	ctx "github.com/husamettinarabaci/xphish/context"
+	"github.com/husamettinarabaci/xphish/controllers/api"
+	log "github.com/husamettinarabaci/xphish/logger"
+	mid "github.com/husamettinarabaci/xphish/middleware"
+	"github.com/husamettinarabaci/xphish/middleware/ratelimit"
+	"github.com/husamettinarabaci/xphish/models"
+	"github.com/husamettinarabaci/xphish/util"
+	"github.com/husamettinarabaci/xphish/worker"
 	"github.com/jordan-wright/unindexed"
 )
 
@@ -32,7 +32,7 @@ import (
 // admin server
 type AdminServerOption func(*AdminServer)
 
-// AdminServer is an HTTP server that implements the administrative Gophish
+// AdminServer is an HTTP server that implements the administrative Xphish
 // handlers, including the dashboard and REST API.
 type AdminServer struct {
 	server  *http.Server
@@ -286,7 +286,7 @@ func (as *AdminServer) Settings(w http.ResponseWriter, r *http.Request) {
 }
 
 // UserManagement is an admin-only handler that allows for the registration
-// and management of user accounts within Gophish.
+// and management of user accounts within Xphish.
 func (as *AdminServer) UserManagement(w http.ResponseWriter, r *http.Request) {
 	params := newTemplateParams(r)
 	params.Title = "User Management"
@@ -413,7 +413,7 @@ func (as *AdminServer) Logout(w http.ResponseWriter, r *http.Request) {
 }
 
 // ResetPassword handles the password reset flow when a password change is
-// required either by the Gophish system or an administrator.
+// required either by the Xphish system or an administrator.
 //
 // This handler is meant to be used when a user is required to reset their
 // password, not just when they want to.

@@ -12,7 +12,7 @@ import (
 // MinPasswordLength is the minimum number of characters required in a password
 const MinPasswordLength = 8
 
-// APIKeyLength is the length of Gophish API keys
+// APIKeyLength is the length of Xphish API keys
 const APIKeyLength = 32
 
 // ErrInvalidPassword is thrown when a user provides an incorrect password.

@@ -3,10 +3,10 @@ package models
 /*
 Design:
 
-Gophish implements simple Role-Based-Access-Control (RBAC) to control access to
+Xphish implements simple Role-Based-Access-Control (RBAC) to control access to
 certain resources.
 
-By default, Gophish has two separate roles, with each user being assigned to
+By default, Xphish has two separate roles, with each user being assigned to
 a single role:
 
 * Admin  - Can modify all objects as well as system-level configuration
@@ -26,26 +26,26 @@ requested permission.
 */
 
 const (
-	// RoleAdmin is used for Gophish system administrators. Users with this
-	// role have the ability to manage all objects within Gophish, as well as
+	// RoleAdmin is used for Xphish system administrators. Users with this
+	// role have the ability to manage all objects within Xphish, as well as
 	// system-level configuration, such as users and URLs.
 	RoleAdmin = "admin"
-	// RoleUser is used for standard Gophish users. Users with this role can
-	// create, manage, and view Gophish objects and campaigns.
+	// RoleUser is used for standard Xphish users. Users with this role can
+	// create, manage, and view Xphish objects and campaigns.
 	RoleUser = "user"
 
-	// PermissionViewObjects determines if a role can view standard Gophish
+	// PermissionViewObjects determines if a role can view standard Xphish
 	// objects such as campaigns, groups, landing pages, etc.
 	PermissionViewObjects = "view_objects"
 	// PermissionModifyObjects determines if a role can create and modify
-	// standard Gophish objects.
+	// standard Xphish objects.
 	PermissionModifyObjects = "modify_objects"
 	// PermissionModifySystem determines if a role can manage system-level
 	// configuration.
 	PermissionModifySystem = "modify_system"
 )
 
-// Role represents a user role within Gophish. Each user has a single role
+// Role represents a user role within Xphish. Each user has a single role
 // which maps to a set of permissions.
 type Role struct {
 	ID          int64        `json:"-"`
