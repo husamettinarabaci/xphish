@@ -11,8 +11,8 @@
 		"cert_path": "example.crt",
 		"key_path": "example.key"
 	},
-	"db_name": "sqlite3",
-	"db_path": "xphish.db",
+	"db_name": "mysql",
+	"db_path": "root:Amca151200@(:3306)/xphish?charset=utf8&parseTime=True&loc=UTC",
 	"migrations_prefix": "db/db_",
 	"contact_address": "",
 	"logging": {
